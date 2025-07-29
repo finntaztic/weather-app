@@ -1,7 +1,14 @@
-fetchWeather();
+// fetchWeather();
+
+
+
+
 async function fetchWeather(){
     try {
-        const response = await fetch ('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/pasay/today?unitGroup=metric&include=days&key=VDC7PX7MEU4NV29HN2GF88A37&contentType=json');
+        const location = document.getElementById('search').value.toLowerCase();
+        console.log(location);
+
+        const response = await fetch (`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/today?unitGroup=metric&include=days&key=VDC7PX7MEU4NV29HN2GF88A37&contentType=json`);
         
         if (!response.ok){
             throw new Error ('Could not fetch resource');
