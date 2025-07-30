@@ -31,7 +31,7 @@ body {
 }
 
 .toggle:after{
-  content: 'ON';
+  content: '°C';
   position: absolute;
   font-size: 1rem;
   color: #333;
@@ -52,8 +52,13 @@ body {
 }
 
 .toggle:checked:after{
-  content: 'OFF';
-  left: 0;
+  content: '°F';
+  left: 10%;
   color: #fff;
 }
 
+
+
+.weather-info{
+  outline: 1px solid black;
+}
