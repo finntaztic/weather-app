@@ -1,7 +1,8 @@
-async function fetchWeather(){
+
+
+
+async function fetchWeather(location){
     try {
-        const location = document.getElementById('search').value.toLowerCase();
-        console.log(location);
 
         const response = await fetch (`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/today?unitGroup=metric&include=days&key=VDC7PX7MEU4NV29HN2GF88A37&contentType=json`);
         
@@ -17,22 +18,20 @@ async function fetchWeather(){
         console.log(data.days[0].icon); //icon
         console.log(data.days[0].description); //description
         console.log(data.days[0].feelslike); //temparature
-
-
     } catch (error) {
         console.error(error)
     }
 };
 
+fetchWeather('pasay');
 
-function Weather (){
-    async function loadWeather(location){
-        try {
-            const response = await fetch (`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/today?unitGroup=metric&include=days&key=VDC7PX7MEU4NV29HN2GF88A37&contentType=json`);
-        } catch (error) {
-            console.error(error)
-        }
-    }
-}
+//change location based on inputs
+const searchBtn = document.querySelector('#searchBtn');
+searchBtn.addEventListener('click', () => {
+    const newLocation = document.getElementById('search').value.toLowerCase();
+    fetchWeather(newLocation);
+});
+
+//change temperature unit of measure
 
 
