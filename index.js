@@ -86,7 +86,3 @@ const toggle = document.querySelector('.toggle');
         }
     })
 
-toggle.addEventListener('click', () => {
-    initialUnit = 'us';
-    fetchWeather(initialLocation, initialUnit)
-})
